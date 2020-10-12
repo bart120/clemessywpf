@@ -1,0 +1,36 @@
+﻿<Page x:Class="clemessywpf.Views.PagePiecesListe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:clemessywpf.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePiecesListe">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button>Ajouter</Button>
+                    <Button>Supprimer</Button>
+                    <Separator />
+                    <Label Content="Recherche" />
+                    <TextBox Width="150" BorderBrush="LightGray" BorderThickness="1"/>
+                </ToolBar>
+            </ToolBarTray>
+            <DataGrid CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Référence" />
+                    <DataGridTextColumn Header="Tarif" />
+                    <DataGridTextColumn Header="Mise à jour le" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Page>

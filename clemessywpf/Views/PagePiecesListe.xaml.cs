@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace clemessywpf
+namespace clemessywpf.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour PagePiecesListe.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PagePiecesListe : Page
     {
-        public MainWindow()
+        public PagePiecesListe()
         {
             InitializeComponent();
-           
-          
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

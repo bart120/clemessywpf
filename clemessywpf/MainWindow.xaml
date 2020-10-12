@@ -3,10 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:clemessywpf.Properties"
         xmlns:local="clr-namespace:clemessywpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Clemessy" Height="600" Width="900">
+    
+    <DockPanel>
         
-    </Grid>
+            <!-- commentaire -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{x:Static p:Resources.file}">
+                <MenuItem Header="{x:Static p:Resources.exit}"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button ToolTip="{x:Static p:Resources.save}" Content="{StaticResource SaveImage}" />
+                <Separator />
+                <Button ToolTip="{x:Static p:Resources.save}" Content="{StaticResource CutImage}" />
+                <Button ToolTip="{x:Static p:Resources.save}" Content="{StaticResource CopyImage}" />
+                <Button ToolTip="{x:Static p:Resources.save}" Content="{StaticResource PasteImage}" />
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem Content="Ready"></StatusBarItem>
+        </StatusBar>
+        
+        <Grid>
+           
+        </Grid>
+
+
+
+    </DockPanel>
+
+
 </Window>
