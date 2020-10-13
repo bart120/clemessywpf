@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:p="clr-namespace:clemessywpf.Properties"
         xmlns:local="clr-namespace:clemessywpf"
+        xmlns:views="clr-namespace:clemessywpf.Views"
         mc:Ignorable="d"
         Title="Clemessy" Height="600" Width="900">
     
@@ -30,7 +31,12 @@
         </StatusBar>
         
         <Grid>
-           
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <views:PieceListeView />
+            <views:PieceView Grid.Column="1" />
         </Grid>
 
 

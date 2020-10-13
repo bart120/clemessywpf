@@ -1,4 +1,5 @@
-﻿using System;
+﻿using clemessywpf.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace clemessywpf.Views
     /// </summary>
     public partial class PieceListeView : UserControl
     {
+        private PieceListViewModel _vm;
         public PieceListeView()
         {
             InitializeComponent();
+            this.DataContext = _vm = new PieceListViewModel();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this._vm.SearchValue = "";
         }
     }
 }

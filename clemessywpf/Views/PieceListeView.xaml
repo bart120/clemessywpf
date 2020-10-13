@@ -4,30 +4,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:clemessywpf.Views"
+             xmlns:vm="clr-namespace:clemessywpf.ViewModels"
+             xmlns:views="clr-namespace:clemessywpf.Views"
+             
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="500">
+    <!--<UserControl.DataContext>
+        <vm:PieceListViewModel />
+    </UserControl.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300*" />
-            <ColumnDefinition Width="300" />
+            
         </Grid.ColumnDefinitions>
 
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
                     <Button>Ajouter</Button>
-                    <Button>Supprimer</Button>
+                    <Button Click="Button_Click">Supprimer</Button>
                     <Separator />
                     <Label Content="Recherche" />
-                    <TextBox Width="150" BorderBrush="LightGray" BorderThickness="1"/>
+                    <TextBox Width="150" BorderBrush="LightGray" BorderThickness="1" Text="{Binding SearchValue}"/>
                 </ToolBar>
             </ToolBarTray>
-            <DataGrid CanUserDeleteRows="False">
+            <DataGrid CanUserDeleteRows="False" ItemsSource="{Binding Path=Pieces}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Référence" />
-                    <DataGridTextColumn Header="Tarif" />
-                    <DataGridTextColumn Header="Mise à jour le" />
-                    <DataGridComboBoxColumn Header="Statut" />
+                    <DataGridTextColumn Header="Référence" Binding="{Binding Reference}" />
+                    <DataGridTextColumn Header="Tarif" Binding="{Binding Tarif}" />
+                    <DataGridTextColumn Header="Mise à jour le"  Binding="{Binding Maj}"/>
+                    <DataGridTemplateColumn Header="Statut" CellTemplate="{StaticResource DataTemplateStatut}" />
+                    <DataGridTemplateColumn Header="Multi">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Padding="4,2,4,3">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} - {1}">
+                                                <Binding Path="Reference" />
+                                                <Binding Path="Tarif" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <views:PieceView />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
