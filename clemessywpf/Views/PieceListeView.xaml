@@ -22,13 +22,14 @@
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
                     <Button>Ajouter</Button>
-                    <Button Click="Button_Click">Supprimer</Button>
+                    <Button Command="{Binding DeleteCommand}">Supprimer</Button>
                     <Separator />
                     <Label Content="Recherche" />
                     <TextBox Width="150" BorderBrush="LightGray" BorderThickness="1" Text="{Binding SearchValue}"/>
                 </ToolBar>
             </ToolBarTray>
-            <DataGrid CanUserDeleteRows="False" ItemsSource="{Binding Path=Pieces}" AutoGenerateColumns="False">
+            <DataGrid CanUserDeleteRows="False" ItemsSource="{Binding Path=Pieces}" AutoGenerateColumns="False" SelectionMode="Single"
+                      SelectedItem="{Binding SelectedPiece}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Référence" Binding="{Binding Reference}" />
                     <DataGridTextColumn Header="Tarif" Binding="{Binding Tarif}" />
