@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace clemessywpf.Views
 {
     /// <summary>
-    /// Logique d'interaction pour PagePiecesListe.xaml
+    /// Logique d'interaction pour PieceView.xaml
     /// </summary>
-    public partial class PagePiecesListe : Page
+    public partial class PieceView : UserControl
     {
-        public PagePiecesListe()
+        public PieceView()
         {
             InitializeComponent();
         }

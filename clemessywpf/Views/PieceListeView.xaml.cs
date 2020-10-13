@@ -13,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace clemessywpf
+namespace clemessywpf.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour PieceListeView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PieceListeView : UserControl
     {
-        public MainWindow()
+        public PieceListeView()
         {
             InitializeComponent();
-           
-          
         }
-
     }
 }
