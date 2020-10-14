@@ -8,18 +8,16 @@ using System.Threading.Tasks;
 
 namespace clemessywpf.Services
 {
-    public class DbService : IDbService
+    class DbServiceMock : IDbService
     {
-
-        private ClemessyDbContext _db = new ClemessyDbContext();
-        public ClemessyDbContext getContext()
-        {
-            return _db;
-        }
-
         public List<Piece> GetAllPiece()
         {
-            return _db.Pieces.ToList();
+            return null;
+        }
+
+        public ClemessyDbContext getContext()
+        {
+            throw new NotImplementedException();
         }
     }
 }

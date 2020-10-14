@@ -16,6 +16,10 @@
             <MenuItem Header="{x:Static p:Resources.file}">
                 <MenuItem Header="{x:Static p:Resources.exit}"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Langue">
+                <MenuItem Header="FR" Click="MenuItem_Click"></MenuItem>
+                <MenuItem Header="EN" Click="MenuItem_Click_1"></MenuItem>
+            </MenuItem>
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>

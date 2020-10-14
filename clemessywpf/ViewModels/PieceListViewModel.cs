@@ -49,13 +49,14 @@ namespace clemessywpf.ViewModels
 
         public ICommand DeleteCommand { get; private set; }
 
-        private ClemessyDbContext _db;
+        private IDbService _servDb;
+        //private ClemessyDbContext _db;
         public PieceListViewModel()
         {
             this.DeleteCommand = new RelayCommand(DeletePiece);
-            _db = SimpleIoc.Default.GetInstance<IDbService>().getContext();
-
-            this.Pieces = new ObservableCollection<Piece>(_db.Pieces.Where(x => x.Statut == 1));
+            //_db = SimpleIoc.Default.GetInstance<IDbService>().getContext();
+            _servDb = SimpleIoc.Default.GetInstance<IDbService>();
+            this.Pieces = new ObservableCollection<Piece>(_servDb.GetAllPiece());
             
         }
         

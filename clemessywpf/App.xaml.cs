@@ -9,6 +9,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Waf.Applications;
 using System.Windows;
@@ -54,6 +55,19 @@ namespace clemessywpf
         {
             base.OnStartup(e);
             LogManager.GetLogger("App").Info("{0} {1} is starting OS: {2}", ApplicationInfo.ProductName, ApplicationInfo.Version, Environment.OSVersion);
+        }
+
+        public static void ChangeCulture(string culture)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+            var old = Application.Current.MainWindow;
+
+            Application.Current.MainWindow = new MainWindow();
+            Application.Current.MainWindow.Show();
+
+            old.Hide();
+
         }
 
 
