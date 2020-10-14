@@ -1,4 +1,5 @@
 ﻿using clemessywpf.Messages;
+using clemessywpf.Models;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using System;
@@ -12,13 +13,21 @@ namespace clemessywpf.ViewModels
 {
     public class PieceViewModel:BaseViewModel
     {
-        private string _reference;
+        /*private string _reference;
 
         public string Reference
         {
             get { return _reference; }
             set { _reference = value; Changed(); }
+        }*/
+        private Piece _piece;
+
+        public Piece Piece
+        {
+            get { return _piece; }
+            set { _piece = value; Changed(); }
         }
+
 
         public ICommand SaveCommand { get; private set; }
 
@@ -26,7 +35,7 @@ namespace clemessywpf.ViewModels
             this.SaveCommand = new RelayCommand(SavePiece);
             Messenger.Default.Register<DisplayPieceMessage>(this, message =>
                 {
-                    this.Reference = message.Piece.Reference;
+                    this.Piece = message.Piece;
                 });
         }
 

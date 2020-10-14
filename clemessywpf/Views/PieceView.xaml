@@ -30,7 +30,7 @@
         <TextBox Validation.ErrorTemplate="{StaticResource ValidationTemplate}" x:Name="refBox" Grid.Column="2" Grid.Row="0" >
             <!-- Style="{StaticResource TextBoxReferenceError}"-->
             <TextBox.Text>
-                <Binding Path="Reference" UpdateSourceTrigger="PropertyChanged">
+                <Binding Path="Piece.Reference" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
                         <rules:ReferenceRule Max="6" />
                     </Binding.ValidationRules>
