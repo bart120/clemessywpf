@@ -3,6 +3,7 @@
                     xmlns:local="clr-namespace:clemessywpf.Resources"
                     xmlns:conv="clr-namespace:clemessywpf.Converters">
     <conv:IntToStatutConverter x:Key="ConvIntStatut" />
+    <conv:ErrorsConverter x:Key="ConvError" />
     <DataTemplate x:Key="DataTemplateStatut">
         <Image Source="{Binding Statut, Converter={StaticResource ConvIntStatut}}" />
     </DataTemplate>

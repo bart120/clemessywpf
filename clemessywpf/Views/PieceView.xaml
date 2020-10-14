@@ -27,7 +27,8 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Content="Référence" Target="{ Binding ElementName=refBox}" />
-        <TextBox x:Name="refBox" Grid.Column="2" Grid.Row="0" Style="{StaticResource TextBoxReferenceError}">
+        <TextBox Validation.ErrorTemplate="{StaticResource ValidationTemplate}" x:Name="refBox" Grid.Column="2" Grid.Row="0" >
+            <!-- Style="{StaticResource TextBoxReferenceError}"-->
             <TextBox.Text>
                 <Binding Path="Reference" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
