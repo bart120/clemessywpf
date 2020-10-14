@@ -102,7 +102,19 @@
     <Compile Include="Converters\ErrorsConverter.cs" />
     <Compile Include="Converters\IntToStatutConverter.cs" />
     <Compile Include="Data\ClemessyDbContext.cs" />
+    <Compile Include="Messages\DisplayPieceMessage.cs" />
+    <Compile Include="Migrations\202010141219525_Init.cs" />
+    <Compile Include="Migrations\202010141219525_Init.designer.cs">
+      <DependentUpon>202010141219525_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010141226383_UpdatePieces.cs" />
+    <Compile Include="Migrations\202010141226383_UpdatePieces.designer.cs">
+      <DependentUpon>202010141226383_UpdatePieces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Piece.cs" />
+    <Compile Include="Services\DbService.cs" />
+    <Compile Include="Services\IDbService.cs" />
     <Compile Include="ValidationRules\ReferenceRule.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\PieceListViewModel.cs" />
@@ -169,6 +181,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202010141219525_Init.resx">
+      <DependentUpon>202010141219525_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010141226383_UpdatePieces.resx">
+      <DependentUpon>202010141226383_UpdatePieces.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>

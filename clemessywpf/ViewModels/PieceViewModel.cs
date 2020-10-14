@@ -1,4 +1,6 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using clemessywpf.Messages;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +24,15 @@ namespace clemessywpf.ViewModels
 
         public PieceViewModel(){
             this.SaveCommand = new RelayCommand(SavePiece);
+            Messenger.Default.Register<DisplayPieceMessage>(this, message =>
+                {
+                    this.Reference = message.Piece.Reference;
+                });
         }
 
         private void SavePiece()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

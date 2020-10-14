@@ -1,5 +1,10 @@
-﻿using clemessywpf.Models;
+﻿using clemessywpf.Data;
+using clemessywpf.Messages;
+using clemessywpf.Models;
+using clemessywpf.Services;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,12 +19,12 @@ namespace clemessywpf.ViewModels
 {
     public class PieceListViewModel : BaseViewModel
     {
-        public ObservableCollection<Piece> Pieces { get; set; } = new ObservableCollection<Piece>
+        public ObservableCollection<Piece> Pieces { get; set; } /*= new ObservableCollection<Piece>
         {
             new Piece{ Reference = "445GGT50", Maj = DateTime.Now, Statut = 1, Tarif = 1234},
             new Piece{ Reference = "445GGT51", Maj = DateTime.Now, Statut = 2, Tarif = 1546},
             new Piece{ Reference = "445GGT53", Maj = DateTime.Now, Statut = 1, Tarif = 16},
-        };
+        };*/
 
         private string _searchValue = "445GGT50";
         public string SearchValue
@@ -31,12 +36,27 @@ namespace clemessywpf.ViewModels
             }
         }
 
-        public Piece SelectedPiece { get; set; }
+        private Piece _selectedPiece;
+
+        public Piece SelectedPiece
+        {
+            get { return _selectedPiece; }
+            set { 
+                _selectedPiece = value;
+                Messenger.Default.Send<DisplayPieceMessage>(new DisplayPieceMessage { Piece = value });
+            }
+        }
+
         public ICommand DeleteCommand { get; private set; }
 
+        private ClemessyDbContext _db;
         public PieceListViewModel()
         {
             this.DeleteCommand = new RelayCommand(DeletePiece);
+            _db = SimpleIoc.Default.GetInstance<IDbService>().getContext();
+
+            this.Pieces = new ObservableCollection<Piece>(_db.Pieces.Where(x => x.Statut == 1));
+            
         }
         
         
