@@ -16,4 +16,13 @@
     <Style TargetType="{x:Type TextBox}"  BasedOn="{StaticResource BaseFormControl}">
 
     </Style>
+
+    <Style x:Key="TextBoxReferenceError" TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" 
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)/ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
